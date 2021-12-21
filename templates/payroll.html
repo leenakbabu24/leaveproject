@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAYROLL</title>
+</head>
+<center>
+	{% block content %}
+	<body bgcolor="lightblue">
+		<h1 style="color:red;border-style: outset;"><marquee> PAYROLL</marquee></h1>
+		<table>
+			<form action ="pay" method="POST"> {%csrf_token%}
+				<tr> NAME: <input type="text" name="name"><br><br></tr>
+				<tr> BANK: <input type="text" name="bank"><br><br></tr>
+				<tr> ACCOUNT NUMBER: <input type="number" name="account"><br><br></tr>
+				<tr> BRANCH: <input type="text" name="branch"><br><br></tr>
+				<tr> BASE BRANCH: <input type="text" name="base"><br><br></tr>
+				<tr> IFSC CODE :<input type="number" name="ifsc"><br><br></tr>
+				<tr> <button type="submit" value="SUBMIT" formaction = "pay" onclick="location.href='payrollpreview.html'">SUBMIT</button>
+				</tr>
+			</table>
+		</form>
+</body>
+</center>
+</html>
+{% endblock %}

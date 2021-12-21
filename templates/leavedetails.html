@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Leave Details</title>
+<style>
+    table,
+    th,
+    td {
+padding:10px;
+border : 1px solid black;
+border-collapse: collapse;
+}
+td {
+text-align : center;
+}
+</style>
+</head>
+{% block content %}
+<body bgcolor="lightblue">
+<h1><center>LEAVE DETAILS</center></h1>
+
+<form action = "leavedetails" method = "GET">{% csrf_token %}
+</form>
+<table style="width:100%;margin-right:auto;margin-left:auto;margin-top:50px;">
+<tr>
+
+<th> EMPLOYEE NAME </th>
+<th> STARTING DATE </th>
+<th> ENDING DATE </th>
+<th> REASON OF LEAVE </th>
+<th> STATUS</th>
+    <th>ACTION</th>
+    <th>ACTION</th>
+</tr>
+{% for i in all %}
+<tr>
+
+<td>{{i.name}}</td>
+<td>{{i.startingdate}}</td>
+<td>{{i.endingdate}}</td>
+<td>{{i.reason}}</td>
+<td>{{i.status}}</td>
+<td>
+     <form action="/leaveedit/{{ i.id }}/" method = "GET">{% csrf_token %}
+         <input type = "submit" value = "APPROVE"  style="background-color:green;color:white;width:80px;height:30px;">
+    </form>
+</td>
+<td>
+    <form action="/leaveedit1/{{ i.id }}/" method = "GET">{% csrf_token %}
+        <input type = "submit" value = "REJECT"  style="background-color:green;color:white;width:80px;height:30px;">
+    </form>
+</td>
+</tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

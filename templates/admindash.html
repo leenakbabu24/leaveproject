@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN DASHBOARD</title>
+<style>
+    nav {
+    float : left;
+    width : 20%;
+    height : 500px;
+    background : lightgreen;
+    padding : 20px;
+    }
+    </style>
+</head>
+{% block content %}
+<body bgcolor="yellow">
+<form action="along" method="GET">{%csrf_token%}
+    <header>
+        <h2>ADMIN DASHBOARD</h2>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="sal" >SALARY DETAILS </a></li><br>
+                <li><a href="pay">PAYROLL DETAILS</a></li><br>
+                <li><a href="leavedetails">EMPLOYEE LEAVE DETAILS </a></li><br>
+            </ul>
+        </nav>
+    </section>
+</form>
+</body>
+</html>
+{% endblock %}

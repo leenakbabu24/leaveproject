@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TASK ASSIGN</title>
+</head>
+{% block content %}
+<body bgcolor="lightblue">
+<center>
+    <form action="taskassign" method="POST">{%csrf_token%}
+        <h1 style="color:red;border-style: outset;"><marquee>TASK ASSIGN</marquee></h1>
+        USERNAME <input type="text" name="username"><br><br>
+        TASK ASSIGNED <input type="text" name="task"><br><br>
+        DEADLINE <input type ="date" name = "deadline"><br>
+    </form>
+</center>
+</body>
+</html>
+{% endblock %}

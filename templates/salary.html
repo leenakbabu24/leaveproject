@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SALARY</title>
+</head>
+{% block content %}
+<body style="background-color: lightgreen;">
+<h1 style="color: royalblue;text-align: center;border-style: double;"> <marquee>SALARY DETAILS</marquee> </h1>
+	<form action= "sal" method = "POST"> {%csrf_token%}
+        <center>
+			BASIC SALARY :<input type = "number" name="basic"><br><br>
+			ANNUAL SALARY :<input type="number" name="annual"><br><br>
+			LEAVE DAYS : <input type= "number" name="month"><br><br>
+			<input type="submit" value="SUBMIT" onclick="location.href=payroll.html" formaction="pay"><br><br>
+	    </center>
+    </form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LEAVE REJECT</title>
+    <style>
+         st {
+    float : left;
+    width : 30%;
+    height : 500px;
+    background : lightgreen;
+    padding : 30px;
+    }
+    </style>
+</head>
+{% block content %}
+<body bgcolor="lightblue">
+<h4 style = "text-align:left"><u>REJECT LEAVE</u></h4>
+{% for i in all %}
+<form action = "/leavereject/{{ i.id }}/" method = "POST">{% csrf_token %}
+    <st>
+    <section>
+        <table>
+            <tr>
+    <td>USER ID:</td><td> <input type = "text" name="userid" value = "{{i.userid}}" /> </td></tr>
+    <tr>
+    <td>NAME:</td><td> <input type ="text" name="name" value = "{{i.name}}"> </td></tr>
+    <tr>
+    <td>STARTING DATE:</td><td> <input type = "text" name="startingdate" value = "{{i.startingdate}} "> </td></tr>
+    <tr>
+    <td>ENDING DATE:</td><td> <input type = "text" name="endingdate" value = "{{i.endingdate}} "> </td></tr>
+    <tr>
+    <td>REASON:</td><td> <input type = "text" name="reason" value = "{{i.reason}} "> </td></tr>
+    <tr>
+    <td>STATUS:</td><td> <input type = "text" name="status" value = "REJECTED"> </td></tr>
+    <tr>
+    <form action = "/leavereject/{{ i.id }}/" method = "POST">{% csrf_token %}
+        <td></td><td><input type = "submit" value="REJECT" style = "back ground-color:green;color:red;width:80px;height:30px;"></td></tr>
+        </st>
+    </section>
+</table>
+    </form>
+    {% endfor %}
+</form>
+<div>
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+{% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}

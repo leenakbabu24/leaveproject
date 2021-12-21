@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LEAVE APPROVAL</title>
+    <style>
+     st {
+    float : left;
+    width : 30%;
+    height : 500px;
+    background : lightgreen;
+    padding : 30px;
+    }
+    </style>
+</head>
+{% block content %}
+<body bgcolor="lightblue">
+<h4 style="text-align:left;"><u>APPROVE LEAVE</u></h4>
+{% for i in all %}
+<form action="/leaveapprove/{{i.id}}/" method="POST">{% csrf_token %}
+    <section>
+        <st>
+    USER ID : <input type = "text" name="userid" value = "{{i.userid}}" /> <br><br>
+    NAME : <input type = "text" name="name" value="{{i.name}}" /> <br><br>
+    STARTING DATE : <input type = "text" name="startingdate" value="{{i.startingdate}}" /> <br><br>
+    ENDING DATE : <input type = "text" name="endingdate" value="{{i.endingdate}}" /> <br><br>
+    REASON : <input type = "text" name="reason" value="{{i.reason}}" /> <br><br>
+    STATUS : <input type = "text" name="status" value="Approved" /> <br><br>
+    <form action="/leaveapprove/{{i.id}}/" method="post">{% csrf_token %}
+        <input type = "submit" value="APPROVE" style = "back ground-color:green;color:red;width:80px;height:30px;">
+    </form>
+        </st>
+    </section>
+</form>
+    {% endfor %}
+</form>
+<div>
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+{% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}
